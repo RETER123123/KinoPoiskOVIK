@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Главная — Поиск фильмов</title>
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/home.css" />
+  <!-- Входной модуль: search.js импортирует config.js и storage.js -->
+  <script type="module" defer src="../js/search.js"></script>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">КиноПоискОВИК</h1>
+      <nav class="main-nav">
+        <div class="profile-area">
+          <img id="avatar-btn" src="../assets/icons/user.svg" alt="Профиль" class="avatar" />
+          <span class="profile-text">Профиль</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content" style="flex: 1;">
+    <section class="search-section">
+      <form id="search-form" class="search-form" role="search">
+        <input id="search-input" type="search" placeholder="Введите название фильма..." required />
+        <button type="submit" class="btn">Найти</button>
+      </form>
+      <div id="search-status" class="status" aria-live="polite"></div>
+      <div id="search-results" class="results-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 КиноПоискОВИК. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Навигация по аватару И по тексту
+    document.getElementById('avatar-btn').addEventListener('click', () => {
+      window.location.href = 'profile.html';
+    });
+    document.querySelector('.profile-text').addEventListener('click', () => {
+      window.location.href = 'profile.html';
+    });
+  </script>
+</body>
+</html>

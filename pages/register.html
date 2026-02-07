@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Регистрация / Вход</title>
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/auth.css" />
+  <!-- Входной модуль: auth.js импортирует storage.js сам -->
+  <script type="module" defer src="../js/auth.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">Регистрация</h1>
+      <nav class="main-nav">
+        <a href="../index.html" class="btn btn-home">Главная</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="auth-page">
+    <div class="auth-container">
+      <section class="auth-card">
+        <h2>Создать аккаунт</h2>
+        <form id="register-form" method="post" action="#" novalidate>
+          <div>
+            <label for="name">Имя</label>
+            <input id="name" name="name" type="text" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="password">Пароль</label>
+            <input id="password" name="password" type="password" minlength="6" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">Зарегистрироваться</button>
+        </form>
+      </section>
+
+      <section class="auth-card">
+        <h2>Уже есть аккаунт?</h2>
+        <form id="login-form" method="post" action="#" novalidate>
+          <div>
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" required />
+          
+            <label for="login-password">Пароль</label>
+            <input id="login-password" type="password" required />
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-submit">Войти</button>
+        </form>
+      </section>
+    </div>
+
+    <p id="auth-message" class="message" aria-live="polite"></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 КиноПоискОВИК</p>
+    </div>
+  </footer>
+</body>
+</html>

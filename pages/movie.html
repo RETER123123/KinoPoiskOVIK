@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Фильм — Описание</title>
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/movie.css" />
+  <!-- Входной модуль: movie.js импортирует config.js и storage.js -->
+  <script type="module" defer src="../js/movie.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">Описание фильма</h1>
+      <nav class="main-nav">
+        <a href="home.html">Главная</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container movie-page">
+    <section id="movie-info" class="movie-info">
+      <!-- Данные фильма будут подгружены через movie.js -->
+    </section>
+
+    <section class="user-reviews">
+      <h3>Отзывы пользователей</h3>
+      <div id="reviews-list"></div>
+
+      <form id="review-form" class="review-form">
+        <h4>Оставить отзыв</h4>
+        <label for="review-text">Комментарий</label>
+        <textarea id="review-text" required></textarea>
+
+        <label for="review-rating">Оценка</label>
+        <select id="review-rating" required>
+          <option value="5">5 — Отлично</option>
+          <option value="4">4 — Хорошо</option>
+          <option value="3">3 — Нормально</option>
+          <option value="2">2 — Плохо</option>
+          <option value="1">1 — Ужасно</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Добавить отзыв</button>
+      </form>
+    </section>
+
+    <aside class="movie-actions">
+      <button id="fav-btn" class="btn">Добавить в избранное</button>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 КиноПоискОВИК</p>
+    </div>
+  </footer>
+</body>
+</html>

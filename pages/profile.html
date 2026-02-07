@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Профиль пользователя</title>
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/profile.css" />
+  <!-- Входной модуль: profile.js импортирует storage.js -->
+  <script type="module" defer src="../js/profile.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">Профиль</h1>
+      <nav class="main-nav">
+        <a href="home.html">Главная</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container profile-page">
+    <section class="profile-card">
+      <img id="profile-avatar" src="../assets/icons/user.svg" alt="Аватар" class="avatar-large" />
+      <form id="profile-form">
+        <label for="profile-name">Имя</label>
+        <input id="profile-name" type="text" />
+
+        <label for="profile-email">Email</label>
+        <input id="profile-email" type="email" />
+
+        <label for="profile-password">Пароль</label>
+        <input id="profile-password" type="password" />
+
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+      </form>
+    </section>
+
+    <section class="favorites">
+      <h3>Избранное</h3>
+      <div id="favorites-list"></div>
+    </section>
+
+    <section class="my-reviews">
+      <h3>Мои отзывы</h3>
+      <div id="my-reviews-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 КиноПоискОВИК</p>
+    </div>
+  </footer>
+</body>
+</html>
