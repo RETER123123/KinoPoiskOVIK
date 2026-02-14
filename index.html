@@ -6,26 +6,20 @@
   <title>КиноПоискОВИК — Главная</title>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <h1 class="site-title">КиноПоискОВИК</h1>
       <nav class="main-nav" aria-label="Главная навигация">
-        <a href="pages/register.html" class="btn btn-cta">Зарегистрироваться</a>
+        <a href="pages/register.html" class="btn btn-cta">Зарегистрироваться/Зайти</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero container">
-      <div class="hero-text">
-        <h2>Найди фильм. Оцени. Поделись мнением.</h2>
-        <p>Учебный проект: поиск фильмов, отзывы, избранное и профиль пользователя.</p>
-      </div>
-    </section>
-
-    <section class="features container">
+  <div class="index-wrapper">
+    <aside class="features-sidebar">
       <h3>Функции сайта</h3>
       <ul>
         <li>Поиск фильмов через API</li>
@@ -33,13 +27,55 @@
         <li>Добавление в избранное и профиль с управлением</li>
         <li>Страница кинокритика с подробным обзором</li>
       </ul>
-    </section>
-  </main>
+    </aside>
+
+    <div class="poster-center">
+      <div class="main-actor">
+        <img id="main-actor-photo" src="https://via.placeholder.com/160" alt="Главный актер" />
+        <h4 id="main-actor-name">Загрузка...</h4>
+        <p id="character-bio" class="character-bio">Загрузка информации...</p>
+      </div>
+
+      <div class="poster-main">
+        <img id="rotating-poster" src="https://via.placeholder.com/300x450" alt="Постер фильма" />
+        <div class="poster-title-bar">
+          <h2 id="poster-title">Загрузка...</h2>
+        </div>
+      </div>
+
+      <div class="supporting-actors">
+        <div class="actor-small">
+          <img id="actor2-photo" src="https://via.placeholder.com/100" alt="Актер 2" />
+          <p id="actor2-name">Загрузка...</p>
+        </div>
+        <div class="actor-small">
+          <img id="actor3-photo" src="https://via.placeholder.com/100" alt="Актер 3" />
+          <p id="actor3-name">Загрузка...</p>
+        </div>
+        <div class="actor-small">
+          <img id="actor4-photo" src="https://via.placeholder.com/100" alt="Актер 4" />
+          <p id="actor4-name">Загрузка...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="movie-description">
+      <h3>О фильме</h3>
+      <p id="movie-plot">Загрузка описания...</p>
+      <div class="movie-meta">
+        <div><strong>Год:</strong> <span id="movie-year">-</span></div>
+        <div><strong>Жанр:</strong> <span id="movie-genre">-</span></div>
+        <div><strong>Рейтинг:</strong> <span id="movie-rating">-</span></div>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
       <p>© 2026 КиноПоискОВИК. Все права защищены.</p>
     </div>
   </footer>
+
+  <script src="js/index.js"></script>
 </body>
 </html>

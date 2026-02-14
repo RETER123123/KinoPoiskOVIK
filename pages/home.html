@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/home.css" />
-  <!-- Входной модуль: search.js импортирует config.js и storage.js -->
   <script type="module" defer src="../js/search.js"></script>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
@@ -23,15 +22,84 @@
     </div>
   </header>
 
-  <main class="container main-content" style="flex: 1;">
-    <section class="search-section">
-      <form id="search-form" class="search-form" role="search">
-        <input id="search-input" type="search" placeholder="Введите название фильма..." required />
-        <button type="submit" class="btn">Найти</button>
-      </form>
-      <div id="search-status" class="status" aria-live="polite"></div>
-      <div id="search-results" class="results-grid"></div>
-    </section>
+  <main class="main-content" style="flex: 1;">
+    <div class="search-layout">
+      <!-- Левая панель - Фильтры -->
+      <aside class="filters-panel">
+        <h3>Фильтры поиска</h3>
+        
+        <div class="filter-group">
+          <label for="filter-title">Название фильма</label>
+          <input id="filter-title" type="text" placeholder="Введите название..." />
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-rating">Средняя оценка</label>
+          <input id="filter-rating" type="number" min="0" max="10" step="0.1" placeholder="Например: 5.0" />
+          <small>Будут показаны фильмы ±1.5 от указанной оценки</small>
+        </div>
+
+        <div class="filter-group">
+          <label>Жанры</label>
+          <div class="genres-list">
+            <label class="genre-item">
+              <input type="checkbox" value="Action" />
+              <span>Экшн</span>
+            </label>
+            <label class="genre-item">
+              <input type="checkbox" value="Adventure" />
+              <span>Приключения</span>
+            </label>
+            <label class="genre-item">
+              <input type="checkbox" value="Comedy" />
+              <span>Комедия</span>
+            </label>
+            <label class="genre-item">
+              <input type="checkbox" value="Crime" />
+              <span>Криминал</span>
+            </label>
+            <label class="genre-item">
+              <input type="checkbox" value="Drama" />
+              <span>Драма</span>
+            </label>
+            <label class="genre-item">
+              <input type="checkbox" value="Fantasy" />
+              <span>Фэнтези</span>
+            </label>
+            <label class="genre-item">
+              <input type="checkbox" value="Horror" />
+              <span>Ужасы</span>
+            </label>
+            <label class="genre-item">
+              <input type="checkbox" value="Romance" />
+              <span>Романтика</span>
+            </label>
+            <label class="genre-item">
+              <input type="checkbox" value="Sci-Fi" />
+              <span>Фантастика</span>
+            </label>
+            <label class="genre-item">
+              <input type="checkbox" value="Thriller" />
+              <span>Триллер</span>
+            </label>
+          </div>
+        </div>
+
+        <button id="search-btn" class="btn-search">Поиск</button>
+      </aside>
+
+      <!-- Центр - Результаты поиска -->
+      <section class="search-section">
+        <h2 class="section-title">ФИЛЬМЫ</h2>
+        <div id="search-status" class="status" style="display:none;">Используйте фильтры для поиска фильмов</div>
+        <div id="search-results" class="results-grid"></div>
+      </section>
+
+      <!-- Правая панель - пока пустая -->
+      <aside class="right-panel">
+        <!-- Будет заполнено позже -->
+      </aside>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -41,7 +109,6 @@
   </footer>
 
   <script>
-    // Навигация по аватару И по тексту
     document.getElementById('avatar-btn').addEventListener('click', () => {
       window.location.href = 'profile.html';
     });
