@@ -1,4 +1,3 @@
-// Утилиты для работы с localStorage
 const LS = window.localStorage;
 
 export const Storage = {
@@ -14,7 +13,6 @@ export const Storage = {
   }
 };
 
-// Специфичные функции
 export const AuthStorage = {
   key: 'kp_user',
   getUser() { return Storage.load(this.key); },
@@ -22,42 +20,55 @@ export const AuthStorage = {
   logout() { Storage.remove(this.key); }
 };
 
+// Получаем email текущего пользователя для уникального ключа
+function getUserKey(base) {
+  const user = AuthStorage.getUser();
+  const email = user ? user.email : 'guest';
+  return `${base}_${email}`;
+}
+
 export const Favorites = {
-  key: 'kp_favs',
-  getAll() { return Storage.load(this.key, []); },
+  getAll() { return Storage.load(getUserKey('kp_favs'), []); },
   add(movie) {
     const list = this.getAll();
     if (!list.find(m => m.imdbID === movie.imdbID)) list.push(movie);
-    Storage.save(this.key, list);
+    Storage.save(getUserKey('kp_favs'), list);
   },
   remove(imdbID) {
-    let list = this.getAll().filter(m => m.imdbID !== imdbID);
-    Storage.save(this.key, list);
+    const list = this.getAll().filter(m => m.imdbID !== imdbID);
+    Storage.save(getUserKey('kp_favs'), list);
   },
-  isFav(imdbID) { return !!this.getAll().find(m => m.imdbID === imdbID); }
+  isFav(imdbID) {
+    return !!this.getAll().find(m => m.imdbID === imdbID);
+  }
 };
 
 export const Reviews = {
-  key: 'kp_reviews',
-  // структура: { imdbID: [ {id, userEmail, name, text, rating, createdAt} ] }
-  getAll() { return Storage.load(this.key, {}); },
-  getFor(imdbID) { const all = this.getAll(); return all[imdbID] || []; },
+  // Отзывы общие для всех (чтобы все видели отзывы друг друга на фильме)
+  // но при удалении — только свои
+  getAll() { return Storage.load('kp_reviews', {}); },
+  getFor(imdbID) {
+    const all = this.getAll();
+    return all[imdbID] || [];
+  },
   add(imdbID, review) {
     const all = this.getAll();
     all[imdbID] = all[imdbID] || [];
     all[imdbID].push(review);
-    Storage.save(this.key, all);
+    Storage.save('kp_reviews', all);
   },
   remove(imdbID, reviewId) {
     const all = this.getAll();
     if (!all[imdbID]) return;
     all[imdbID] = all[imdbID].filter(r => r.id !== reviewId);
-    Storage.save(this.key, all);
+    Storage.save('kp_reviews', all);
   },
   update(imdbID, reviewId, newData) {
     const all = this.getAll();
     if (!all[imdbID]) return;
-    all[imdbID] = all[imdbID].map(r => r.id === reviewId ? {...r, ...newData} : r);
-    Storage.save(this.key, all);
+    all[imdbID] = all[imdbID].map(r =>
+      r.id === reviewId ? { ...r, ...newData } : r
+    );
+    Storage.save('kp_reviews', all);
   }
 };

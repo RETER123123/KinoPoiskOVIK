@@ -7,32 +7,38 @@
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/dark-theme.css" />
+  <script src="js/theme.js"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <h1 class="site-title">КиноПоискОВИК</h1>
-      <nav class="main-nav" aria-label="Главная навигация">
-        <a href="pages/register.html" class="btn btn-cta">Зарегистрироваться/Зайти</a>
+      <nav class="main-nav" style="display:flex; gap:0.8rem; align-items:center;">
+        <a href="pages/register.html" class="btn btn-cta">Зарегистрироваться / Зайти</a>
       </nav>
     </div>
   </header>
 
   <div class="index-wrapper">
+
+ 
     <aside class="features-sidebar">
       <h3>Функции сайта</h3>
       <ul>
-        <li>Поиск фильмов через API</li>
-        <li>Страница фильма с оценками ODMB и отзывами пользователей</li>
-        <li>Добавление в избранное и профиль с управлением</li>
-        <li>Страница кинокритика с подробным обзором</li>
+        <li>🔍 Поиск фильмов через API</li>
+        <li>🎬 Страница фильма с оценками и отзывами</li>
+        <li>❤️ Добавление в избранное и профиль</li>
+        <li>🏆 Топ лучших фильмов всех времён</li>
       </ul>
     </aside>
+
 
     <div class="poster-center">
       <div class="main-actor">
         <img id="main-actor-photo" src="https://via.placeholder.com/160" alt="Главный актер" />
-        <h4 id="main-actor-name">Загрузка...</h4>
+        <h4 id="main-actor-real-name">Актёр</h4>
+        <p id="main-actor-char-name" class="actor-char-name">Роль</p>
         <p id="character-bio" class="character-bio">Загрузка информации...</p>
       </div>
 
@@ -40,34 +46,90 @@
         <img id="rotating-poster" src="https://via.placeholder.com/300x450" alt="Постер фильма" />
         <div class="poster-title-bar">
           <h2 id="poster-title">Загрузка...</h2>
+          <div class="movie-tagline-box">
+            <p id="movie-tagline">Загрузка...</p>
+          </div>
         </div>
       </div>
 
       <div class="supporting-actors">
         <div class="actor-small">
           <img id="actor2-photo" src="https://via.placeholder.com/100" alt="Актер 2" />
-          <p id="actor2-name">Загрузка...</p>
+          <p id="actor2-real-name" class="actor-real-name">Актёр</p>
+          <p id="actor2-char-name" class="actor-char-name-small">Роль</p>
         </div>
         <div class="actor-small">
           <img id="actor3-photo" src="https://via.placeholder.com/100" alt="Актер 3" />
-          <p id="actor3-name">Загрузка...</p>
+          <p id="actor3-real-name" class="actor-real-name">Актёр</p>
+          <p id="actor3-char-name" class="actor-char-name-small">Роль</p>
         </div>
         <div class="actor-small">
           <img id="actor4-photo" src="https://via.placeholder.com/100" alt="Актер 4" />
-          <p id="actor4-name">Загрузка...</p>
+          <p id="actor4-real-name" class="actor-real-name">Актёр</p>
+          <p id="actor4-char-name" class="actor-char-name-small">Роль</p>
         </div>
       </div>
     </div>
 
-    <div class="movie-description">
-      <h3>О фильме</h3>
-      <p id="movie-plot">Загрузка описания...</p>
-      <div class="movie-meta">
-        <div><strong>Год:</strong> <span id="movie-year">-</span></div>
-        <div><strong>Жанр:</strong> <span id="movie-genre">-</span></div>
-        <div><strong>Рейтинг:</strong> <span id="movie-rating">-</span></div>
+ 
+    <div class="author-card">
+      <div class="author-avatar-wrap">
+        
+        <img src="https://ui-avatars.com/api/?name=Ваше+Имя&background=6366f1&color=fff&size=200&rounded=true&bold=true" alt="Автор" class="author-avatar" />
+      </div>
+
+      <div class="author-greeting">
+        <span class="author-badge">😎 Автор проекта</span>
+        <h3 class="author-name">
+          Амирхан Аскарбай
+      
+        </h3>
+        <p class="author-bio">
+          Я создал этот сайт ну и тут блок с информацией об мне не потому что не было конкретных идей что ставить в этот блок , нет все потому что я крутой 😎
+        </p>
+      </div>
+
+      <div class="author-contacts">
+        <div class="author-contact-item">
+          <span class="contact-icon">📧</span>
+          <div>
+            <span class="contact-label">Почта</span>
+            
+            <a class="contact-value" href="mailto:your@email.com">amiraskarb@gmail.com</a>
+          </div>
+        </div>
+        <div class="author-contact-item">
+          <span class="contact-icon">📱</span>
+          <div>
+            <span class="contact-label">Телефон</span>
+            
+            <a class="contact-value" href="tel:+70000000000">+ 7 (705) 467 36-65</a>
+          </div>
+        </div>
+        <div class="author-contact-item">
+          <span class="contact-icon">💼</span>
+          <div>
+            <span class="contact-label">GitHub</span>
+            <a class="contact-value" href="https://github.com/username" target="_blank">https://github.com/RETER123123</a>
+          </div>
+        </div>
+        <div class="author-contact-item">
+          <span class="contact-icon">🎓</span>
+          <div>
+            <span class="contact-label">Учебное заведение</span>
+            <span class="contact-value">STEP academy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="author-stack">
+        <span class="stack-tag">HTML5</span>
+        <span class="stack-tag">CSS3</span>
+        <span class="stack-tag">JavaScript</span>
+        <span class="stack-tag">OMDB API</span>
       </div>
     </div>
+
   </div>
 
   <footer class="site-footer">

@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/auth.css" />
-  <!-- Входной модуль: auth.js импортирует storage.js сам -->
+  <link rel="stylesheet" href="../css/dark-theme.css" />
+  <script src="../js/theme.js"></script>
   <script type="module" defer src="../js/auth.js"></script>
 </head>
 <body>
@@ -28,14 +29,11 @@
           <div>
             <label for="name">Имя</label>
             <input id="name" name="name" type="text" required />
-
             <label for="email">Email</label>
             <input id="email" name="email" type="email" required />
-
             <label for="password">Пароль</label>
             <input id="password" name="password" type="password" minlength="6" required />
           </div>
-
           <button type="submit" class="btn btn-primary btn-submit">Зарегистрироваться</button>
         </form>
       </section>
@@ -46,16 +44,13 @@
           <div>
             <label for="login-email">Email</label>
             <input id="login-email" type="email" required />
-          
             <label for="login-password">Пароль</label>
             <input id="login-password" type="password" required />
           </div>
-          
           <button type="submit" class="btn btn-primary btn-submit">Войти</button>
         </form>
       </section>
     </div>
-
     <p id="auth-message" class="message" aria-live="polite"></p>
   </main>
 

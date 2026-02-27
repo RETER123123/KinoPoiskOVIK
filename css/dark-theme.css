@@ -1,0 +1,160 @@
+/* Тёмная тема для всех страниц */
+html.dark-theme body {
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%) !important;
+  }
+  
+  /* Хедер */
+  html.dark-theme .site-header {
+    background: rgba(20, 20, 35, 0.97) !important;
+    border-bottom: 1px solid #2d2d3f !important;
+  }
+  
+  html.dark-theme .site-title {
+    background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+  
+  /* Футер */
+  html.dark-theme .site-footer {
+    background: rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  /* Белые карточки → тёмные */
+  html.dark-theme .result-card,
+  html.dark-theme .filters-panel,
+  html.dark-theme .right-panel,
+  html.dark-theme .movie-info,
+  html.dark-theme .user-reviews,
+  html.dark-theme .review-form,
+  html.dark-theme .features-sidebar,
+  html.dark-theme .movie-description,
+  html.dark-theme .auth-card,
+  html.dark-theme .profile-hero,
+  html.dark-theme .profile-form-section,
+  html.dark-theme .theme-switcher,
+  html.dark-theme .fav-item,
+  html.dark-theme .my-review,
+  html.dark-theme .section-header,
+  html.dark-theme .empty-state,
+  html.dark-theme .critic-card,
+  html.dark-theme .podium-info,
+  html.dark-theme .top-item {
+    background: #1e1e2e !important;
+    color: #e2e8f0 !important;
+  }
+  
+  /* Тексты */
+  html.dark-theme h1,
+  html.dark-theme h2,
+  html.dark-theme h3,
+  html.dark-theme h4,
+  html.dark-theme p,
+  html.dark-theme label,
+  html.dark-theme span,
+  html.dark-theme strong {
+    color: #e2e8f0;
+  }
+  
+  /* Акцентные цвета оставляем */
+  html.dark-theme .stat-num,
+  html.dark-theme .section-heading,
+  html.dark-theme .filters-panel h3,
+  html.dark-theme .movie-description h3,
+  html.dark-theme .features-sidebar h3,
+  html.dark-theme .section-header h3,
+  html.dark-theme .user-reviews h3,
+  html.dark-theme .critic-card-body h3,
+  html.dark-theme .review-movie-link {
+    color: #818cf8 !important;
+  }
+  
+  /* Инпуты */
+  html.dark-theme input,
+  html.dark-theme textarea,
+  html.dark-theme select {
+    background: #2a2a3e !important;
+    border-color: #3d3d5c !important;
+    color: #e2e8f0 !important;
+  }
+  
+  html.dark-theme input:focus,
+  html.dark-theme textarea:focus,
+  html.dark-theme select:focus {
+    border-color: #818cf8 !important;
+  }
+  
+  /* Бордеры */
+  html.dark-theme .movie-meta,
+  html.dark-theme .stat-divider,
+  html.dark-theme .profile-stats {
+    border-color: #2d2d3f !important;
+  }
+  
+  /* Отзывы */
+  html.dark-theme .review {
+    background: rgba(129, 140, 248, 0.08) !important;
+  }
+  
+  /* Жанры чекбоксы */
+  html.dark-theme .genres-list {
+    background: rgba(129, 140, 248, 0.05) !important;
+    border-color: #3d3d5c !important;
+  }
+  
+  html.dark-theme .genre-item:hover {
+    background: rgba(129, 140, 248, 0.1) !important;
+  }
+  
+  html.dark-theme .genre-item span {
+    color: #e2e8f0 !important;
+  }
+  
+  /* Статус поиска */
+  html.dark-theme .status {
+    background: #1e1e2e !important;
+    color: #94a3b8 !important;
+  }
+  
+  /* Заголовок ФИЛЬМЫ */
+  html.dark-theme .section-title {
+    background: #1e1e2e !important;
+    color: #818cf8 !important;
+    border-color: #3d3d5c !important;
+  }
+  
+  /* Карточки на главной */
+  html.dark-theme .poster-center {
+    background: linear-gradient(135deg, #0d0d1a 0%, #111122 100%) !important;
+  }
+  
+  /* Теглайн */
+  html.dark-theme .movie-tagline-box {
+    background: rgba(30, 30, 46, 0.95) !important;
+  }
+  
+  html.dark-theme .movie-tagline-box p {
+    color: #e2e8f0 !important;
+  }
+  
+  /* Блок авторизации */
+  html.dark-theme body.auth-page-body {
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%) !important;
+  }
+  
+  /* muted тексты */
+  html.dark-theme .muted,
+  html.dark-theme .filter-group small,
+  html.dark-theme .profile-email-text,
+  html.dark-theme .stat-label,
+  html.dark-theme .top-meta,
+  html.dark-theme .fav-meta,
+  html.dark-theme .ad-sub {
+    color: #64748b !important;
+  }
+  
+  /* Скроллбар */
+  html.dark-theme ::-webkit-scrollbar-track {
+    background: #1e1e2e !important;
+  }

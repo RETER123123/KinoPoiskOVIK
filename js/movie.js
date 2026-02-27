@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  let currentMovieData = null;
+
   async function loadMovie() {
     movieInfo.innerHTML = 'Загрузка...';
     try {
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         movieInfo.innerHTML = `<p>Ошибка: ${data.Error}</p>`;
         return;
       }
+      currentMovieData = data;
       renderMovie(data);
       renderReviews();
       updateFavBtn();
@@ -58,32 +61,32 @@ document.addEventListener('DOMContentLoaded', () => {
       el.className = 'review';
       el.innerHTML = `
         <div><strong>${r.name}</strong> <span class="muted">— ${new Date(r.createdAt).toLocaleString()}</span></div>
-        <div>Оценка: ${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+        <div>Оценка: ${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
         <p>${r.text}</p>
-        ${AuthStorage.getUser() && AuthStorage.getUser().email === r.userEmail ? `<div><button class="btn edit-btn" data-id="${r.id}">Редактировать</button> <button class="btn del-btn" data-id="${r.id}">Удалить</button></div>` : ''}
+        ${AuthStorage.getUser() && AuthStorage.getUser().email === r.userEmail
+          ? `<div>
+               <button class="btn edit-btn" data-id="${r.id}">Редактировать</button>
+               <button class="btn del-btn" data-id="${r.id}">Удалить</button>
+             </div>`
+          : ''}
       `;
       reviewsList.appendChild(el);
     });
 
-    // события удаления/редактирования
     reviewsList.querySelectorAll('.del-btn').forEach(b => {
       b.addEventListener('click', () => {
-        const id = b.dataset.id;
-        Reviews.remove(imdbID, id);
+        Reviews.remove(imdbID, b.dataset.id);
         renderReviews();
       });
     });
 
     reviewsList.querySelectorAll('.edit-btn').forEach(b => {
       b.addEventListener('click', () => {
-        const id = b.dataset.id;
-        const all = Reviews.getFor(imdbID);
-        const rev = all.find(x => x.id === id);
+        const rev = Reviews.getFor(imdbID).find(x => x.id === b.dataset.id);
         if (!rev) return;
         document.getElementById('review-text').value = rev.text;
         document.getElementById('review-rating').value = rev.rating;
-        // при сабмите обновим вместо добавления
-        reviewForm.dataset.editId = id;
+        reviewForm.dataset.editId = b.dataset.id;
       });
     });
   }
@@ -103,15 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
       Reviews.update(imdbID, editId, { text, rating });
       delete reviewForm.dataset.editId;
     } else {
-      const review = {
+      Reviews.add(imdbID, {
         id: 'r_' + Date.now(),
         userEmail: user.email,
         name: user.name,
         text,
         rating,
         createdAt: Date.now()
-      };
-      Reviews.add(imdbID, review);
+      });
     }
     reviewForm.reset();
     renderReviews();
@@ -128,11 +130,18 @@ document.addEventListener('DOMContentLoaded', () => {
         updateFavBtn();
         return;
       }
-      const url = `${CONFIG.OMDB_BASE}?apikey=${CONFIG.OMDB_API_KEY}&i=${imdbID}`;
-      const res = await fetch(url);
-      const movie = await res.json();
-      Favorites.add({ imdbID: movie.imdbID, Title: movie.Title, Poster: movie.Poster });
-      updateFavBtn();
+      // Сохраняем расширенные данные — Title, Poster, Year, Genre, Rating
+      if (currentMovieData) {
+        Favorites.add({
+          imdbID: currentMovieData.imdbID,
+          Title: currentMovieData.Title,
+          Poster: currentMovieData.Poster,
+          Year: currentMovieData.Year,
+          Genre: currentMovieData.Genre,
+          Rating: currentMovieData.imdbRating
+        });
+        updateFavBtn();
+      }
     } catch (err) {
       console.error(err);
       alert('Ошибка при добавлении в избранное');

@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Главная — Поиск фильмов</title>
+  <title>Поиск фильмов</title>
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/dark-theme.css" />
+  <script src="../js/theme.js"></script>
   <script type="module" defer src="../js/search.js"></script>
 </head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<body style="display:flex; flex-direction:column; min-height:100vh;">
   <header class="site-header">
     <div class="container header-inner">
       <h1 class="site-title">КиноПоискОВИК</h1>
@@ -22,85 +24,114 @@
     </div>
   </header>
 
-  <main class="main-content" style="flex: 1;">
+  <main class="main-content" style="flex:1;">
     <div class="search-layout">
-      <!-- Левая панель - Фильтры -->
+
+      <!-- Левая панель -->
       <aside class="filters-panel">
         <h3>Фильтры поиска</h3>
-        
         <div class="filter-group">
           <label for="filter-title">Название фильма</label>
           <input id="filter-title" type="text" placeholder="Введите название..." />
         </div>
-
         <div class="filter-group">
           <label for="filter-rating">Средняя оценка</label>
           <input id="filter-rating" type="number" min="0" max="10" step="0.1" placeholder="Например: 5.0" />
           <small>Будут показаны фильмы ±1.5 от указанной оценки</small>
         </div>
-
         <div class="filter-group">
           <label>Жанры</label>
           <div class="genres-list">
-            <label class="genre-item">
-              <input type="checkbox" value="Action" />
-              <span>Экшн</span>
-            </label>
-            <label class="genre-item">
-              <input type="checkbox" value="Adventure" />
-              <span>Приключения</span>
-            </label>
-            <label class="genre-item">
-              <input type="checkbox" value="Comedy" />
-              <span>Комедия</span>
-            </label>
-            <label class="genre-item">
-              <input type="checkbox" value="Crime" />
-              <span>Криминал</span>
-            </label>
-            <label class="genre-item">
-              <input type="checkbox" value="Drama" />
-              <span>Драма</span>
-            </label>
-            <label class="genre-item">
-              <input type="checkbox" value="Fantasy" />
-              <span>Фэнтези</span>
-            </label>
-            <label class="genre-item">
-              <input type="checkbox" value="Horror" />
-              <span>Ужасы</span>
-            </label>
-            <label class="genre-item">
-              <input type="checkbox" value="Romance" />
-              <span>Романтика</span>
-            </label>
-            <label class="genre-item">
-              <input type="checkbox" value="Sci-Fi" />
-              <span>Фантастика</span>
-            </label>
-            <label class="genre-item">
-              <input type="checkbox" value="Thriller" />
-              <span>Триллер</span>
-            </label>
+            <label class="genre-item"><input type="checkbox" value="Action" /><span>Экшн</span></label>
+            <label class="genre-item"><input type="checkbox" value="Adventure" /><span>Приключения</span></label>
+            <label class="genre-item"><input type="checkbox" value="Comedy" /><span>Комедия</span></label>
+            <label class="genre-item"><input type="checkbox" value="Crime" /><span>Криминал</span></label>
+            <label class="genre-item"><input type="checkbox" value="Drama" /><span>Драма</span></label>
+            <label class="genre-item"><input type="checkbox" value="Fantasy" /><span>Фэнтези</span></label>
+            <label class="genre-item"><input type="checkbox" value="Horror" /><span>Ужасы</span></label>
+            <label class="genre-item"><input type="checkbox" value="Romance" /><span>Романтика</span></label>
+            <label class="genre-item"><input type="checkbox" value="Sci-Fi" /><span>Фантастика</span></label>
+            <label class="genre-item"><input type="checkbox" value="Thriller" /><span>Триллер</span></label>
           </div>
         </div>
 
-        <button id="search-btn" class="btn-search">Поиск</button>
+        <!-- Кнопка поиска -->
+        <button id="search-btn" class="btn-search">🔍 Поиск</button>
+
+        <!-- Кнопка случайного фильма -->
+        <button id="random-btn" class="btn-random">🎲 Случайный фильм</button>
+
+        <!-- Кнопка топа -->
+        <a href="top.html" class="btn-top-link">🏆 Топ фильмов</a>
       </aside>
 
-      <!-- Центр - Результаты поиска -->
+      <!-- Центр -->
       <section class="search-section">
         <h2 class="section-title">ФИЛЬМЫ</h2>
-        <div id="search-status" class="status" style="display:none;">Используйте фильтры для поиска фильмов</div>
+        <div id="search-status" class="status">Используйте фильтры для поиска фильмов</div>
         <div id="search-results" class="results-grid"></div>
       </section>
 
-      <!-- Правая панель - пока пустая -->
+      <!-- Правая панель -->
       <aside class="right-panel">
-        <!-- Будет заполнено позже -->
+        <div class="right-panel-title">📢 Реклама</div>
+        <div class="ad-scroll-container">
+          <div class="ad-scroll-text">
+            <div class="ad-item">
+              <div class="ad-icon">🎬</div>
+              <p>Тут могла быть ваша реклама</p>
+              <p class="ad-sub">Свяжитесь с нами</p>
+            </div>
+            <div class="ad-item">
+              <div class="ad-icon">🍿</div>
+              <p>Продвигайте ваш продукт здесь</p>
+              <p class="ad-sub">Лучшая аудитория кинолюбителей</p>
+            </div>
+            <div class="ad-item">
+              <div class="ad-icon">⭐</div>
+              <p>Ваш бренд на главной странице</p>
+              <p class="ad-sub">Выгодные условия размещения</p>
+            </div>
+            <div class="ad-item">
+              <div class="ad-icon">🎥</div>
+              <p>Тут могла быть ваша реклама</p>
+              <p class="ad-sub">Свяжитесь с нами</p>
+            </div>
+          </div>
+        </div>
       </aside>
+
     </div>
   </main>
+
+  <!-- Модальное окно случайного фильма -->
+  <div id="random-modal" class="random-modal hidden">
+    <div class="random-modal-inner">
+      <button id="random-close" class="random-close">✕</button>
+      <div id="random-loading" class="random-loading">
+        <div class="random-spinner">🎲</div>
+        <p>Ищем фильм для вас...</p>
+      </div>
+      <div id="random-content" class="random-content hidden">
+        <div class="random-poster-wrap">
+          <img id="random-poster" src="" alt="Постер" />
+        </div>
+        <div class="random-info">
+          <h3 id="random-title"></h3>
+          <div class="random-meta">
+            <span id="random-year"></span>
+            <span id="random-genre"></span>
+            <span id="random-rating" class="random-rating-badge"></span>
+          </div>
+          <p id="random-plot"></p>
+          <div class="random-buttons">
+            <button id="random-open-btn" class="random-open">🎬 Открыть фильм</button>
+            <button id="random-again-btn" class="random-again">🎲 Другой фильм</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
@@ -114,6 +145,106 @@
     });
     document.querySelector('.profile-text').addEventListener('click', () => {
       window.location.href = 'profile.html';
+    });
+
+    // Список популярных фильмов для случайного выбора
+    const randomMovies = [
+      'tt1375666', // Начало
+      'tt0468569', // Тёмный рыцарь
+      'tt0816692', // Интерстеллар
+      'tt0133093', // Матрица
+      'tt0110912', // Криминальное чтиво
+      'tt0137523', // Бойцовский клуб
+      'tt0109830', // Форрест Гамп
+      'tt0111161', // Побег из Шоушенка
+      'tt0172495', // Гладиатор
+      'tt0068646', // Крёстный отец
+      'tt0071562', // Крёстный отец 2
+      'tt0050083', // 12 разгневанных мужчин
+      'tt0108052', // Список Шиндлера
+      'tt0167260', // Властелин колец: Возвращение короля
+      'tt0120737', // Властелин колец: Братство кольца
+      'tt0080684', // Звёздные войны: Империя наносит ответный удар
+      'tt0245429', // Унесённые призраками
+      'tt0317248', // Город Бога
+      'tt0114369', // Семь
+      'tt0120689', // Зелёная миля
+      'tt0102926', // Молчание ягнят
+      'tt0118799', // Жизнь прекрасна
+      'tt0076759', // Звёздные войны
+      'tt0088763', // Назад в будущее
+      'tt0073195', // Челюсти
+      'tt0082971', // Индиана Джонс
+      'tt0105236', // Бешеные псы
+      'tt0482571', // Престиж
+      'tt1853728', // Джанго освобождённый
+      'tt2015381', // Стражи галактики
+      'tt0209144', // Воспоминания об убийстве
+      'tt0361748', // Бесславные ублюдки
+      'tt1345836', // Тёмный рыцарь: Возрождение
+      'tt0364569', // Олдбой
+      'tt0405094', // Жизнь других
+      'tt0119217', // Умница Уилл Хантинг
+      'tt0986264', // Реквием по мечте
+      'tt0910970', // ВАЛЛ-И
+      'tt0435761', // История игрушек 3
+      'tt2096673', // Головоломка
+    ];
+
+    let currentRandomId = null;
+
+    const modal = document.getElementById('random-modal');
+    const loading = document.getElementById('random-loading');
+    const content = document.getElementById('random-content');
+
+    async function fetchRandomMovie() {
+      loading.classList.remove('hidden');
+      content.classList.add('hidden');
+
+      const id = randomMovies[Math.floor(Math.random() * randomMovies.length)];
+      currentRandomId = id;
+
+      try {
+        const res = await fetch(`https://www.omdbapi.com/?apikey=trilogy&i=${id}&plot=short`);
+        const data = await res.json();
+
+        if (data.Response === 'True') {
+          document.getElementById('random-poster').src = data.Poster !== 'N/A' ? data.Poster : '../assets/icons/user.svg';
+          document.getElementById('random-title').textContent = data.Title;
+          document.getElementById('random-year').textContent = '📅 ' + data.Year;
+          document.getElementById('random-genre').textContent = '🎬 ' + data.Genre;
+          document.getElementById('random-rating').textContent = '⭐ ' + data.imdbRating + ' / 10';
+          document.getElementById('random-plot').textContent = data.Plot;
+
+          loading.classList.add('hidden');
+          content.classList.remove('hidden');
+        } else {
+          fetchRandomMovie();
+        }
+      } catch {
+        fetchRandomMovie();
+      }
+    }
+
+    document.getElementById('random-btn').addEventListener('click', () => {
+      modal.classList.remove('hidden');
+      fetchRandomMovie();
+    });
+
+    document.getElementById('random-close').addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+
+    document.getElementById('random-again-btn').addEventListener('click', () => {
+      fetchRandomMovie();
+    });
+
+    document.getElementById('random-open-btn').addEventListener('click', () => {
+      window.location.href = `movie.html?imdbID=${currentRandomId}`;
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.add('hidden');
     });
   </script>
 </body>

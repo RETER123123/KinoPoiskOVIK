@@ -7,51 +7,83 @@
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/profile.css" />
-  <!-- Входной модуль: profile.js импортирует storage.js -->
+  <link rel="stylesheet" href="../css/dark-theme.css" />
+  <script src="../js/theme.js"></script>
   <script type="module" defer src="../js/profile.js"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <h1 class="site-title">Профиль</h1>
-      <nav class="main-nav">
+      <h1 class="site-title">КиноПоискОВИК</h1>
+      <nav class="main-nav" style="display:flex; gap:0.8rem; align-items:center;">
         <a href="home.html">Главная</a>
       </nav>
     </div>
   </header>
 
-  <main class="container profile-page">
-    <section class="profile-card">
-      <img id="profile-avatar" src="../assets/icons/user.svg" alt="Аватар" class="avatar-large" />
-      <form id="profile-form">
-        <label for="profile-name">Имя</label>
-        <input id="profile-name" type="text" />
+  <main class="profile-wrapper">
 
-        <label for="profile-email">Email</label>
-        <input id="profile-email" type="email" />
+    <aside class="profile-sidebar">
+      <div class="profile-hero">
+        <div class="avatar-wrapper">
+          <img id="profile-avatar" src="../assets/icons/user.svg" alt="Аватар" class="avatar-large" />
+        </div>
+        <h2 id="profile-display-name">Загрузка...</h2>
+        <p id="profile-display-email" class="profile-email-text">Загрузка...</p>
+        <div class="profile-stats">
+          <div class="stat-item">
+            <span class="stat-num" id="stat-favs">0</span>
+            <span class="stat-label">Избранных</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num" id="stat-reviews">0</span>
+            <span class="stat-label">Отзывов</span>
+          </div>
+        </div>
+      </div>
 
-        <label for="profile-password">Пароль</label>
-        <input id="profile-password" type="password" />
+      <!-- Переключатель темы -->
+      <div class="theme-switcher">
+        <span class="theme-label" id="theme-label">🌙 Тёмная тема</span>
+        <label class="theme-toggle">
+          <input type="checkbox" id="theme-checkbox" />
+          <span class="theme-slider"></span>
+        </label>
+      </div>
 
-        <button type="submit" class="btn btn-primary">Сохранить</button>
-      </form>
+      <div class="profile-form-section">
+        <h3 class="section-heading">✏️ Редактировать профиль</h3>
+        <form id="profile-form">
+          <div class="input-group">
+            <label for="profile-name">Имя</label>
+            <input id="profile-name" type="text" placeholder="Ваше имя" />
+          </div>
+          <div class="input-group">
+            <label for="profile-email">Email</label>
+            <input id="profile-email" type="email" placeholder="Ваш email" />
+          </div>
+          <div class="input-group">
+            <label for="profile-password">Пароль</label>
+            <input id="profile-password" type="password" placeholder="Новый пароль" />
+          </div>
+          <button type="submit" class="btn-save">💾 Сохранить изменения</button>
+        </form>
+      </div>
+
+      <button id="logout-btn" class="btn-logout">🚪 Выйти из аккаунта</button>
+    </aside>
+
+    <section class="profile-section">
+      <div class="section-header"><h3>❤️ Избранное</h3></div>
+      <div id="favorites-list" class="fav-grid"></div>
     </section>
 
-    <section class="favorites">
-      <h3>Избранное</h3>
-      <div id="favorites-list"></div>
+    <section class="profile-section">
+      <div class="section-header"><h3>💬 Мои отзывы</h3></div>
+      <div id="my-reviews-list" class="reviews-list"></div>
     </section>
 
-    <section class="my-reviews">
-      <h3>Мои отзывы</h3>
-      <div id="my-reviews-list"></div>
-    </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 КиноПоискОВИК</p>
-    </div>
-  </footer>
 </body>
 </html>

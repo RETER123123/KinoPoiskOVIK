@@ -1,241 +1,206 @@
-var movies = [
+const movies = [
   {
-    title: 'Inception',
+    title: 'Начало',
     poster: 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg',
-    plot: 'Профессиональный вор крадет корпоративные секреты, используя технологию вторжения в сны.',
-    year: '2010',
-    genre: 'Sci-Fi, Action',
-    rating: '8.8/10',
-    mainActor: { 
-      name: 'Leonardo DiCaprio', 
-      photo: 'https://image.tmdb.org/t/p/w500/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg',
-      character: 'Дом Кобб — вор, специализирующийся на извлечении секретов из подсознания людей во время сна.'
+    tagline: 'Что если бы ваши сны могли быть украдены?',
+    mainActor: {
+      realName: 'Леонардо ДиКаприо',
+      charName: 'Доминик Кобб',
+      photo: 'https://image.tmdb.org/t/p/w185/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg',
+      bio: 'Опытный вор, работающий в сфере корпоративного шпионажа. Умеет проникать в сны людей и похищать их секреты.'
     },
     actors: [
-      { name: 'Marion Cotillard', photo: 'https://image.tmdb.org/t/p/w500/4kw8ybottKAtKMnye0DzvloartS.jpg' },
-      { name: 'Tom Hardy', photo: 'https://image.tmdb.org/t/p/w500/d81K0RH8UX7tZj49tZaQhZ9ewH.jpg' },
-      { name: 'Ellen Page', photo: 'https://image.tmdb.org/t/p/w500/eqJHPSKP5z3Ld5eNGRoFxfBdXFW.jpg' }
+      { realName: 'Джозеф Гордон-Левитт', charName: 'Артур', photo: 'https://image.tmdb.org/t/p/w185/zSuXCR6xCKIgo9hFNfGdqb8F7GD.jpg' },
+      { realName: 'Эллиот Пейдж', charName: 'Ариадна', photo: 'https://image.tmdb.org/t/p/w185/dSEKKamAopCQmCPvhUXMYY87L1H.jpg' },
+      { realName: 'Том Харди', charName: 'Эймс', photo: 'https://image.tmdb.org/t/p/w185/d81K0RH8UX7tZj49tZaQhZ9ewH.jpg' }
     ]
   },
   {
-    title: 'The Dark Knight',
+    title: 'Тёмный рыцарь',
     poster: 'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg',
-    plot: 'Когда угроза Джокер сеет хаос в Готэме, Бэтмен принимает величайший вызов.',
-    year: '2008',
-    genre: 'Action, Crime',
-    rating: '9.0/10',
-    mainActor: { 
-      name: 'Christian Bale', 
-      photo: 'https://image.tmdb.org/t/p/w500/3qx2QFUbG6t6IlzR0F9k3Z6Yhf7.jpg',
-      character: 'Брюс Уэйн / Бэтмен — миллиардер-филантроп, защищающий Готэм от преступности.'
+    tagline: 'Почему так серьёзно?',
+    mainActor: {
+      realName: 'Кристиан Бэйл',
+      charName: 'Брюс Уэйн / Бэтмен',
+      photo: 'https://image.tmdb.org/t/p/w185/nIBklcAKuiMi0EPIjBGeFhFyNBX.jpg',
+      bio: 'Миллиардер Брюс Уэйн стал тёмным стражем Готэма. Появление Джокера ставит его перед невозможным выбором.'
     },
     actors: [
-      { name: 'Heath Ledger', photo: 'https://image.tmdb.org/t/p/w500/5Y9HnYYa9jF4NunY9lSgJGjSe8E.jpg' },
-      { name: 'Aaron Eckhart', photo: 'https://image.tmdb.org/t/p/w500/2SLkguRELD73Z6bVXlJdnFr8F7M.jpg' },
-      { name: 'Michael Caine', photo: 'https://image.tmdb.org/t/p/w500/bVZRMlpjTAO2pJK6v90buFgVbSW.jpg' }
+      { realName: 'Хит Леджер', charName: 'Джокер', photo: 'https://image.tmdb.org/t/p/w185/5Y9HnYYa9jF4NunY9lSgJGjSe8E.jpg' },
+      { realName: 'Аарон Экхарт', charName: 'Харви Дент', photo: 'https://image.tmdb.org/t/p/w185/9PkZer3rRFBelzPMbKmQiP0XJq9.jpg' },
+      { realName: 'Гэри Олдман', charName: 'Комиссар Гордон', photo: 'https://image.tmdb.org/t/p/w185/2v9FO1zI4JROUrivZCHBYVaOkWQ.jpg' }
     ]
   },
   {
-    title: 'Interstellar',
+    title: 'Интерстеллар',
     poster: 'https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg',
-    plot: 'Команда исследователей путешествует через червоточину для спасения человечества.',
-    year: '2014',
-    genre: 'Adventure, Sci-Fi',
-    rating: '8.7/10',
-    mainActor: { 
-      name: 'Matthew McConaughey', 
-      photo: 'https://image.tmdb.org/t/p/w500/sY2mwpafcwqyYS1sOySu1MENDse.jpg',
-      character: 'Джозеф Купер — бывший пилот НАСА, отправившийся в космос для поиска нового дома.'
+    tagline: 'Следующий великий шаг человечества — за пределы нашей галактики.',
+    mainActor: {
+      realName: 'Мэттью МакКонахи',
+      charName: 'Джозеф Купер',
+      photo: 'https://image.tmdb.org/t/p/w185/wJiGedOCZhwMx9DezY8uwbNxmAY.jpg',
+      bio: 'Бывший пилот НАСА и фермер. Соглашается возглавить межзвёздную экспедицию ради спасения Земли.'
     },
     actors: [
-      { name: 'Anne Hathaway', photo: 'https://image.tmdb.org/t/p/w500/ssgNz3BexOv26D8IP7kzuDgcon4.jpg' },
-      { name: 'Jessica Chastain', photo: 'https://image.tmdb.org/t/p/w500/vOFrDeYXILnj747dOleaNh4jK3l.jpg' },
-      { name: 'Michael Caine', photo: 'https://image.tmdb.org/t/p/w500/bVZRMlpjTAO2pJK6v90buFgVbSW.jpg' }
+      { realName: 'Джессика Честейн', charName: 'Мёрф Купер', photo: 'https://image.tmdb.org/t/p/w185/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg' },
+      { realName: 'Энн Хэтэуэй', charName: 'Доктор Бренд', photo: 'https://image.tmdb.org/t/p/w185/tLelKoPNiyJCSEtQTXCFMvskCer.jpg' },
+      { realName: 'Майкл Кейн', charName: 'Профессор Бренд', photo: 'https://image.tmdb.org/t/p/w185/lGRiYAqoV7iDKNe7M8a9IXKZ9eO.jpg' }
     ]
   },
   {
-    title: 'The Matrix',
+    title: 'Матрица',
     poster: 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg',
-    plot: 'Хакер узнает шокирующую правду о своей реальности.',
-    year: '1999',
-    genre: 'Action, Sci-Fi',
-    rating: '8.7/10',
-    mainActor: { 
-      name: 'Keanu Reeves', 
-      photo: 'https://image.tmdb.org/t/p/w500/4D0PpNI0kmP58hgrwGC3wCjxhnm.jpg',
-      character: 'Нео — хакер, который узнает, что реальность — это компьютерная симуляция.'
+    tagline: 'Добро пожаловать в реальный мир.',
+    mainActor: {
+      realName: 'Киану Ривз',
+      charName: 'Томас Андерсон / Нео',
+      photo: 'https://image.tmdb.org/t/p/w185/4D0PpNI0kmP58hgrwGC3wCjxhnm.jpg',
+      bio: 'Программист днём и хакер ночью. Узнаёт, что является Избранным, способным остановить войну с машинами.'
     },
     actors: [
-      { name: 'Laurence Fishburne', photo: 'https://image.tmdb.org/t/p/w500/8suOhUmPbfKqDQ17jQ1Gy0mI3P4.jpg' },
-      { name: 'Carrie-Anne Moss', photo: 'https://image.tmdb.org/t/p/w500/xD4jTA3KmVp5Rq3aHcymL9DUGjD.jpg' },
-      { name: 'Hugo Weaving', photo: 'https://image.tmdb.org/t/p/w500/n3FCe3bMCg4WpvjToigBbugrW75.jpg' }
+      { realName: 'Лоренс Фишборн', charName: 'Морфеус', photo: 'https://image.tmdb.org/t/p/w185/8suOhpnST4YTiijRD2B2sXPT5pd.jpg' },
+      { realName: 'Кэрри-Энн Мосс', charName: 'Тринити', photo: 'https://image.tmdb.org/t/p/w185/rMmVCURApRHxkJBFgcz9NiMTAkM.jpg' },
+      { realName: 'Хьюго Уивинг', charName: 'Агент Смит', photo: 'https://image.tmdb.org/t/p/w185/jXyWg03GZFKQS4KuMhx25cIBxqn.jpg' }
     ]
   },
   {
-    title: 'Pulp Fiction',
+    title: 'Криминальное чтиво',
     poster: 'https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
-    plot: 'Жизни наемных убийц и боксера переплетаются в историях насилия.',
-    year: '1994',
-    genre: 'Crime, Drama',
-    rating: '8.9/10',
-    mainActor: { 
-      name: 'John Travolta', 
-      photo: 'https://image.tmdb.org/t/p/w500/9GVufE87MMIrSn0CbJFLudkALdL.jpg',
-      character: 'Винсент Вега — наемный убийца, работающий на криминального босса.'
+    tagline: 'Ты когда-нибудь замечал, что Паариж по-французски — это Пари?',
+    mainActor: {
+      realName: 'Джон Траволта',
+      charName: 'Винсент Вега',
+      photo: 'https://image.tmdb.org/t/p/w185/q7YGXjE3p78zH4LpD0RIFiCsm4Y.jpg',
+      bio: 'Наёмный убийца, работающий на гангстера Марселаса Уоллеса. Любит бургеры и философские беседы.'
     },
     actors: [
-      { name: 'Samuel L. Jackson', photo: 'https://image.tmdb.org/t/p/w500/AiAYAqwpM5xmiFrAIeQvUXDCVvo.jpg' },
-      { name: 'Uma Thurman', photo: 'https://image.tmdb.org/t/p/w500/6Sjz9teWjrMY9lF2o9FCo4XmoRh.jpg' },
-      { name: 'Bruce Willis', photo: 'https://image.tmdb.org/t/p/w500/A1XBu3CffBpSK8HEIJM8q7Mn4lz.jpg' }
+      { realName: 'Сэмюэл Л. Джексон', charName: 'Джулс Уиннфилд', photo: 'https://image.tmdb.org/t/p/w185/nCJJ3NVgsZQ4bBX37PzAa2OBnCv.jpg' },
+      { realName: 'Ума Турман', charName: 'Мия Уоллес', photo: 'https://image.tmdb.org/t/p/w185/8UZBT7TzKMYe4MWf7QdHGXCIkIy.jpg' },
+      { realName: 'Брюс Уиллис', charName: 'Бутч Кулидж', photo: 'https://image.tmdb.org/t/p/w185/A1pGNnWRZSLAdPiGVEsTwJJDRRX.jpg' }
     ]
   },
   {
-    title: 'Fight Club',
+    title: 'Бойцовский клуб',
     poster: 'https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg',
-    plot: 'Офисный работник и мыловар создают бойцовский клуб.',
-    year: '1999',
-    genre: 'Drama',
-    rating: '8.8/10',
-    mainActor: { 
-      name: 'Brad Pitt', 
-      photo: 'https://image.tmdb.org/t/p/w500/ajNaPmXVVMJFg9GWmu6MJzTaXdV.jpg',
-      character: 'Тайлер Дёрден — харизматичный продавец мыла, создавший подпольный клуб.'
+    tagline: 'Первое правило бойцовского клуба — не говорить о бойцовском клубе.',
+    mainActor: {
+      realName: 'Эдвард Нортон',
+      charName: 'Рассказчик',
+      photo: 'https://image.tmdb.org/t/p/w185/8nytsqL59SFJTVYVrN72k6qkGgJ.jpg',
+      bio: 'Безымянный офисный клерк, потерявший смысл жизни. Страдает от хронической бессонницы.'
     },
     actors: [
-      { name: 'Edward Norton', photo: 'https://image.tmdb.org/t/p/w500/5XBzD5WuTyVQZeS4VI25z2moMeY.jpg' },
-      { name: 'Helena Bonham Carter', photo: 'https://image.tmdb.org/t/p/w500/DDeITcCpnBd0CkAIRPhggy9bt5.jpg' },
-      { name: 'Jared Leto', photo: 'https://image.tmdb.org/t/p/w500/msugySeTCyCmlRWtyB6sMixTQYY.jpg' }
+      { realName: 'Брэд Питт', charName: 'Тайлер Дёрден', photo: 'https://image.tmdb.org/t/p/w185/cckcYc2v0yh1tc9QjRelptcOBko.jpg' },
+      { realName: 'Хелена Бонэм Картер', charName: 'Марла Сингер', photo: 'https://image.tmdb.org/t/p/w185/9s9LYwx1PXk7UmDi6XYMfAH8j4g.jpg' },
+      { realName: 'Мит Лоаф', charName: 'Роберт Полсон', photo: 'https://image.tmdb.org/t/p/w185/4gGFBFqDiobDiRNmxJmEgVoXPRk.jpg' }
     ]
   },
   {
-    title: 'Forrest Gump',
+    title: 'Форрест Гамп',
     poster: 'https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg',
-    plot: 'История жизни простого человека, ставшего свидетелем ключевых событий.',
-    year: '1994',
-    genre: 'Drama, Romance',
-    rating: '8.8/10',
-    mainActor: { 
-      name: 'Tom Hanks', 
-      photo: 'https://image.tmdb.org/t/p/w500/eKF1sGJRrZJbfBG1KirPt1cfNd3.jpg',
-      character: 'Форрест Гамп — простодушный человек с добрым сердцем.'
+    tagline: 'Жизнь — как коробка шоколадных конфет.',
+    mainActor: {
+      realName: 'Том Хэнкс',
+      charName: 'Форрест Гамп',
+      photo: 'https://image.tmdb.org/t/p/w185/xndWFsBlClOJFRdhSt4NBwiPq2o.jpg',
+      bio: 'Добросердечный парень из Алабамы с невероятной удачей. Ветеран Вьетнама и капитан креветочной лодки.'
     },
     actors: [
-      { name: 'Robin Wright', photo: 'https://image.tmdb.org/t/p/w500/9Ly5USA3NzreBSDhkTLkSmPGN1h.jpg' },
-      { name: 'Gary Sinise', photo: 'https://image.tmdb.org/t/p/w500/5h1RKXuOy36z8lT44CPW1aHTOW.jpg' },
-      { name: 'Sally Field', photo: 'https://image.tmdb.org/t/p/w500/5fBK4f2d8EETpWJq3TusPLw9rqP.jpg' }
+      { realName: 'Робин Райт', charName: 'Дженни Каррен', photo: 'https://image.tmdb.org/t/p/w185/0lHGKJQVLJ1mNHBEsNgXHQJo0WF.jpg' },
+      { realName: 'Гэри Синиз', charName: 'Лейтенант Дэн', photo: 'https://image.tmdb.org/t/p/w185/kVILd9VgJ2qlT3JKmwUhYBPiFoH.jpg' },
+      { realName: 'Мэйкелти Уильямсон', charName: 'Бабба Блю', photo: 'https://image.tmdb.org/t/p/w185/5Y9HnYYa9jF4NunY9lSgJGjSe8E.jpg' }
     ]
   },
   {
-    title: 'The Shawshank Redemption',
+    title: 'Побег из Шоушенка',
     poster: 'https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg',
-    plot: 'Два заключенных создают связь через годы, находя искупление.',
-    year: '1994',
-    genre: 'Drama',
-    rating: '9.3/10',
-    mainActor: { 
-      name: 'Tim Robbins', 
-      photo: 'https://image.tmdb.org/t/p/w500/hsCow4JWKvLsVOsW3f0XBW5vvzV.jpg',
-      character: 'Энди Дюфрейн — банкир, ложно обвиненный в убийстве.'
+    tagline: 'Страх держит тебя в заточении. Надежда освобождает.',
+    mainActor: {
+      realName: 'Тим Роббинс',
+      charName: 'Энди Дюфрейн',
+      photo: 'https://image.tmdb.org/t/p/w185/wC1mBdRAFm5TDLSN9HKxo6tJBt1.jpg',
+      bio: 'Бывший банкир, осуждённый за убийство, которого не совершал. Никогда не теряет надежды на свободу.'
     },
     actors: [
-      { name: 'Morgan Freeman', photo: 'https://image.tmdb.org/t/p/w500/jPsLqiYGSofU4s6BjrxnefMfabb.jpg' },
-      { name: 'Bob Gunton', photo: 'https://image.tmdb.org/t/p/w500/s3e2ozEKMQeyvxz4wYWWfbbIFBo.jpg' },
-      { name: 'William Sadler', photo: 'https://image.tmdb.org/t/p/w500/gE6uitJPup1vCHZw9TLhKBvVRgf.jpg' }
+      { realName: 'Морган Фриман', charName: 'Рэд Реддинг', photo: 'https://image.tmdb.org/t/p/w185/jPssioI9NQBBl4SXsAgjOVQ0GrN.jpg' },
+      { realName: 'Боб Гантон', charName: 'Начальник Нортон', photo: 'https://image.tmdb.org/t/p/w185/d5NTKBZmkbSjMBNPDKbXKGbUliT.jpg' },
+      { realName: 'Уильям Сэдлер', charName: 'Хэйвуд', photo: 'https://image.tmdb.org/t/p/w185/iKWs5F3KHGAKhmVE7jxlwMVXlkV.jpg' }
     ]
   },
   {
-    title: 'Gladiator',
+    title: 'Гладиатор',
     poster: 'https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg',
-    plot: 'Преданный генерал становится гладиатором и жаждет мести.',
-    year: '2000',
-    genre: 'Action, Adventure',
-    rating: '8.5/10',
-    mainActor: { 
-      name: 'Russell Crowe', 
-      photo: 'https://image.tmdb.org/t/p/w500/uxiXuVH4vNWrKlJMVVPG1sxAJFe.jpg',
-      character: 'Максимус — предательски убитый римский генерал, ставший гладиатором.'
+    tagline: 'Что мы делаем в жизни — отзывается эхом в вечности.',
+    mainActor: {
+      realName: 'Рассел Кроу',
+      charName: 'Максимус Децим Меридий',
+      photo: 'https://image.tmdb.org/t/p/w185/cGOPbv9wA5gEejkUN892eLZILteq.jpg',
+      bio: 'Легендарный полководец Рима. После предательства становится гладиатором с целью отомстить.'
     },
     actors: [
-      { name: 'Joaquin Phoenix', photo: 'https://image.tmdb.org/t/p/w500/ls72wfQl8AhRVFeBnotmnAdy3JR.jpg' },
-      { name: 'Connie Nielsen', photo: 'https://image.tmdb.org/t/p/w500/lvQypTfeH2Gn2PTbzq6XkT2PLmn.jpg' },
-      { name: 'Oliver Reed', photo: 'https://image.tmdb.org/t/p/w500/5rHbRCKHXPzKTGssCoJIbjRMzBK.jpg' }
+      { realName: 'Хоакин Феникс', charName: 'Коммод', photo: 'https://image.tmdb.org/t/p/w185/nXMzvVF6xR3OXOedozfOcoA20xh.jpg' },
+      { realName: 'Конни Нильсен', charName: 'Луцилла', photo: 'https://image.tmdb.org/t/p/w185/eCpwVFCuCIlDCaCqBgAOXvSCaxE.jpg' },
+      { realName: 'Оливер Рид', charName: 'Проксимо', photo: 'https://image.tmdb.org/t/p/w185/8VlECAMnFXjRRUFpShQFO6LDIRC.jpg' }
     ]
   },
   {
-    title: 'The Godfather',
+    title: 'Крёстный отец',
     poster: 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
-    plot: 'Стареющий патриарх криминальной династии передает контроль своему сыну.',
-    year: '1972',
-    genre: 'Crime, Drama',
-    rating: '9.2/10',
-    mainActor: { 
-      name: 'Marlon Brando', 
-      photo: 'https://image.tmdb.org/t/p/w500/fuTEPWdkYRhMaPRsFAqqRwBySL1.jpg',
-      character: 'Дон Вито Корлеоне — глава могущественной мафиозной семьи.'
+    tagline: 'Предложение, от которого нельзя отказаться.',
+    mainActor: {
+      realName: 'Марлон Брандо',
+      charName: 'Дон Вито Корлеоне',
+      photo: 'https://image.tmdb.org/t/p/w185/fuTEPMDM9uqbgJxMuRbPpXLEBWa.jpg',
+      bio: 'Глава семьи Корлеоне. Мудрый, терпеливый и беспощадный к врагам. Верит в силу семьи и традиций.'
     },
     actors: [
-      { name: 'Al Pacino', photo: 'https://image.tmdb.org/t/p/w500/2dGBb1fOcNdZjtQToVPFxXjm4ke.jpg' },
-      { name: 'James Caan', photo: 'https://image.tmdb.org/t/p/w500/4FCGwuKTPJC4CKSerFfmY3AWKjO.jpg' },
-      { name: 'Robert Duvall', photo: 'https://image.tmdb.org/t/p/w500/ybMmK25h4IVtfE7qrnlVp47RQlh.jpg' }
+      { realName: 'Аль Пачино', charName: 'Майкл Корлеоне', photo: 'https://image.tmdb.org/t/p/w185/ks7Ba4pw1p5uFx6uYAjPBZOrsyY.jpg' },
+      { realName: 'Джеймс Каан', charName: 'Сонни Корлеоне', photo: 'https://image.tmdb.org/t/p/w185/qO5u8LwGH14JfKMGjWS7C6X4oXj.jpg' },
+      { realName: 'Роберт Дюваль', charName: 'Том Хэйген', photo: 'https://image.tmdb.org/t/p/w185/nNAeTmMcvRxHezMdRpnkIvXQLIF.jpg' }
     ]
   }
 ];
 
-var currentIndex = 0;
+let currentIndex = 0;
 
-function updatePoster() {
-  var movie = movies[currentIndex];
-  
-  var posterImg = document.getElementById('rotating-poster');
-  var mainActorPhoto = document.getElementById('main-actor-photo');
-  var actor2Photo = document.getElementById('actor2-photo');
-  var actor3Photo = document.getElementById('actor3-photo');
-  var actor4Photo = document.getElementById('actor4-photo');
-  
-  if (!posterImg || !mainActorPhoto) {
-    console.error('Elements not found');
-    return;
-  }
-  
-  posterImg.style.opacity = '0';
-  mainActorPhoto.style.opacity = '0';
-  actor2Photo.style.opacity = '0';
-  actor3Photo.style.opacity = '0';
-  actor4Photo.style.opacity = '0';
-  
-  setTimeout(function() {
-    posterImg.src = movie.poster;
-    document.getElementById('poster-title').textContent = movie.title;
-    document.getElementById('movie-plot').textContent = movie.plot;
-    document.getElementById('movie-year').textContent = movie.year;
-    document.getElementById('movie-genre').textContent = movie.genre;
-    document.getElementById('movie-rating').textContent = movie.rating;
-    
-    mainActorPhoto.src = movie.mainActor.photo;
-    document.getElementById('main-actor-name').textContent = movie.mainActor.name;
-    document.getElementById('character-bio').textContent = movie.mainActor.character;
-    
-    actor2Photo.src = movie.actors[0].photo;
-    document.getElementById('actor2-name').textContent = movie.actors[0].name;
-    
-    actor3Photo.src = movie.actors[1].photo;
-    document.getElementById('actor3-name').textContent = movie.actors[1].name;
-    
-    actor4Photo.src = movie.actors[2].photo;
-    document.getElementById('actor4-name').textContent = movie.actors[2].name;
-    
-    posterImg.style.opacity = '1';
-    mainActorPhoto.style.opacity = '1';
-    actor2Photo.style.opacity = '1';
-    actor3Photo.style.opacity = '1';
-    actor4Photo.style.opacity = '1';
-  }, 500);
-  
-  currentIndex = (currentIndex + 1) % movies.length;
+function updatePoster(index) {
+  const movie = movies[index];
+
+  // Постер и заголовок
+  const poster = document.getElementById('rotating-poster');
+  const title = document.getElementById('poster-title');
+  const tagline = document.getElementById('movie-tagline');
+
+  if (poster) poster.src = movie.poster;
+  if (title) title.textContent = movie.title;
+  if (tagline) tagline.textContent = movie.tagline;
+
+  // Главный актёр
+  const mainPhoto = document.getElementById('main-actor-photo');
+  const mainRealName = document.getElementById('main-actor-real-name');
+  const mainCharName = document.getElementById('main-actor-char-name');
+  const mainBio = document.getElementById('character-bio');
+
+  if (mainPhoto) mainPhoto.src = movie.mainActor.photo;
+  if (mainRealName) mainRealName.textContent = movie.mainActor.realName;
+  if (mainCharName) mainCharName.textContent = movie.mainActor.charName;
+  if (mainBio) mainBio.textContent = movie.mainActor.bio;
+
+  // Второстепенные актёры
+  [2, 3, 4].forEach((num, i) => {
+    const photo = document.getElementById(`actor${num}-photo`);
+    const realName = document.getElementById(`actor${num}-real-name`);
+    const charName = document.getElementById(`actor${num}-char-name`);
+    if (photo) photo.src = movie.actors[i].photo;
+    if (realName) realName.textContent = movie.actors[i].realName;
+    if (charName) charName.textContent = movie.actors[i].charName;
+  });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Page loaded, starting movie rotation');
-  updatePoster();
-  setInterval(updatePoster, 20000);
-});
+function nextMovie() {
+  currentIndex = (currentIndex + 1) % movies.length;
+  updatePoster(currentIndex);
+}
+
+updatePoster(0);
+setInterval(nextMovie, 5000);

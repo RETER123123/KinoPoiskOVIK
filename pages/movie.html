@@ -7,33 +7,30 @@
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/movie.css" />
-  <!-- Входной модуль: movie.js импортирует config.js и storage.js -->
+  <link rel="stylesheet" href="../css/dark-theme.css" />
+  <script src="../js/theme.js"></script>
   <script type="module" defer src="../js/movie.js"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <h1 class="site-title">Описание фильма</h1>
-      <nav class="main-nav">
+      <nav class="main-nav" style="display:flex; gap:0.8rem;">
         <a href="home.html">Главная</a>
       </nav>
     </div>
   </header>
 
   <main class="container movie-page">
-    <section id="movie-info" class="movie-info">
-      <!-- Данные фильма будут подгружены через movie.js -->
-    </section>
+    <section id="movie-info" class="movie-info"></section>
 
     <section class="user-reviews">
       <h3>Отзывы пользователей</h3>
       <div id="reviews-list"></div>
-
       <form id="review-form" class="review-form">
         <h4>Оставить отзыв</h4>
         <label for="review-text">Комментарий</label>
         <textarea id="review-text" required></textarea>
-
         <label for="review-rating">Оценка</label>
         <select id="review-rating" required>
           <option value="5">5 — Отлично</option>
@@ -42,7 +39,6 @@
           <option value="2">2 — Плохо</option>
           <option value="1">1 — Ужасно</option>
         </select>
-
         <button type="submit" class="btn btn-primary">Добавить отзыв</button>
       </form>
     </section>
